@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Univ Notes</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: rgba(7, 7, 53, 0.536); /* Dark purple */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            perspective: 50vw; /* Responsive perspective */
+            flex-direction: column;
+        }
+
+        .sphere {
+            position: relative;
+            width: 12vw; /* Responsive width */
+            height: 12vw; /* Responsive height */
+            color: #fff;
+            font-size: 2vw; /* Responsive font size */
+            text-align: center;
+            transform-style: preserve-3d;
+            animation: rotate 5s infinite linear;
+            margin-bottom: 5vw; /* Responsive margin */
+        }
+
+        .sphere div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 0.5vw solid #fff; /* Responsive border */
+            line-height: 20vw; /* Responsive line height */
+            transform-origin: center;
+        }
+
+        .loading-text {
+            color: #fff;
+            font-size: 2vw; /* Reduced font size */
+            font-family: Arial, sans-serif; /* Changed font family */
+            margin-top: 1vw; /* Responsive margin */
+            text-shadow: 0.3vw 0.3vw 0.3vw rgba(0, 0, 0, 0.3); /* Responsive text shadow */
+            animation: loading-text 1s infinite; /* Added animation */
+        }
+
+        .loading-bar {
+            width: 20vw; /* Responsive width */
+            height: 2vw; /* Responsive height */
+            background: #333;
+            margin-top: 1vw; /* Responsive margin */
+            position: relative;
+            border-radius: 1vw; /* Responsive border radius */
+            overflow: hidden; /* Hide the parts of the filler that are outside the loading bar */
+            border: 0.2vw solid #fff; /* Responsive white border */
+        }
+
+        .loading-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 50%;
+            background: linear-gradient(to right, darkblue, rgb(27, 6, 61)); /* Gradient color */
+            animation: loading 2s infinite;
+            border-radius: 1vw; /* Responsive border radius */
+        }
+
+        @keyframes rotate {
+            from { transform: rotateX(0deg) rotateY(0deg); }
+            to   { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        @keyframes loading {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(150%); }
+        }
+
+        @keyframes loading-text {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="sphere">
+        <div style="transform: rotateX(90deg) translateZ(10vw);"></div>
+        <div style="transform: rotateX(-90deg) translateZ(10vw);"></div>
+        <div style="transform: rotateY(90deg) translateZ(10vw);"></div>
+        <div style="transform: rotateY(-90deg) translateZ(10vw);"></div>
+    </div>
+    <div class="loading-text">Loading...</div>
+    <div class="loading-bar"></div>
+</body>
+</html>
