@@ -43,15 +43,30 @@ document.getElementById('urlSelector').addEventListener('change', function() {
         openModal()
     });
 });
-
-document.getElementById('iframe').onload = function() {
+document.getElementById('urlSelector').addEventListener('change', function() {
     var iframe = document.getElementById('iframe');
-    var src = 'https://pl.kotl.in/CwaHuIT1D?theme=darcula';
+    var src = this.value;
+    iframe.src = "loading.html";
     testInternet(src)
-        .then(function(loadable) {
-            iframe.src = src; // Load the URL in the iframe
-        })
-        .catch(function(error) {
-            openModal()
-        });
+    .then(function(loadable) {
+        iframe.src = src; // Load the URL in the iframe
+    })
+    .catch(function(error) {
+        openModal()
+    });
+});
+
+// Load the first option by default when the page loads
+window.onload = function() {
+    var urlSelector = document.getElementById('urlSelector');
+    var iframe = document.getElementById('iframe');
+    var src = urlSelector.value;
+    iframe.src = "loading.html";
+    testInternet(src)
+    .then(function(loadable) {
+        iframe.src = src; // Load the URL in the iframe
+    })
+    .catch(function(error) {
+        openModal()
+    });
 };
