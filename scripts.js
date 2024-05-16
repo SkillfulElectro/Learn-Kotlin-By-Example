@@ -31,6 +31,7 @@ function testInternet(src) {
     });
 }
 
+/*
 window.onload = function() {
     var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
     var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -39,7 +40,7 @@ window.onload = function() {
         document.body.innerHTML = "<p>Please rotate your device to landscape mode</p>";
     }
 });
-
+*/
 
 
 document.getElementById('urlSelector').addEventListener('change', function() {
