@@ -31,18 +31,15 @@ function testInternet(src) {
     });
 }
 
-window.addEventListener("load", function() {
-    if (document.body.offsetHeight > document.body.offsetWidth) {
-        alert("yes");
-        if (window.screen.orientation) {
-            window.screen.orientation.lock('landscape')
-            .catch(function(error) {
-                alert(error);
-                console.log("Orientation lock failed: " + error);
-            });
-        }
+window.addEventListener("resize", function() {
+    var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+    var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    if (viewportHeight > viewportWidth) {
+        document.body.innerHTML = "<p>Please rotate your device to landscape mode</p>";
     }
 });
+
 
 
 document.getElementById('urlSelector').addEventListener('change', function() {
