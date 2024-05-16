@@ -31,7 +31,7 @@ function testInternet(src) {
     });
 }
 
-window.addEventListener("resize", function() {
+window.onload = function() {
     var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
     var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
