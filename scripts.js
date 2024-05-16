@@ -33,9 +33,11 @@ function testInternet(src) {
 
 window.addEventListener("load", function() {
     if (document.body.offsetHeight > document.body.offsetWidth) {
+        alert("yes");
         if (window.screen.orientation) {
             window.screen.orientation.lock('landscape')
             .catch(function(error) {
+                alert(error);
                 console.log("Orientation lock failed: " + error);
             });
         }
