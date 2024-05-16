@@ -31,6 +31,18 @@ function testInternet(src) {
     });
 }
 
+window.addEventListener("load", function() {
+    if (document.body.offsetHeight > document.body.offsetWidth) {
+        if (window.screen.orientation) {
+            window.screen.orientation.lock('landscape')
+            .catch(function(error) {
+                console.log("Orientation lock failed: " + error);
+            });
+        }
+    }
+});
+
+
 document.getElementById('urlSelector').addEventListener('change', function() {
     var iframe = document.getElementById('iframe');
     var src = this.value;
